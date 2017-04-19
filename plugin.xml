@@ -11,21 +11,22 @@
         <engine name="cordova" version=">=3.0.0"/>
     </engines>
 
-    <preference name="APP_NAME"/>
+    <preference name="APP_NAME_IOS"/>
+    <preference name="APP_NAME_ANDROID"/>
     <hook type="after_prepare" src="src/rename-app.js"/>
 
     <platform name="android">
         <config-file target="config.xml" parent="/*">
-            <preference name="AppName" value="$APP_NAME"/>
+            <preference name="AppName" value="$APP_NAME_ANDROID"/>
         </config-file>
     </platform>
 
     <platform name="ios">
         <config-file target="*-Info.plist" parent="CFBundleName">
-            <string>$APP_NAME</string>
+            <string>$APP_NAME_IOS</string>
         </config-file>
         <config-file target="*-Info.plist" parent="CFBundleDisplayName">
-            <string>$APP_NAME</string>
+            <string>$APP_NAME_IOS</string>
         </config-file>
     </platform>
 </plugin>

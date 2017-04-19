@@ -34,13 +34,17 @@ module.exports = function (context) {
         parser.parseString(stringsXml, function (err, data) {
 
             data.resources.string.forEach(function (string) {
+                // retrieve the resource with APP_NAME_ANDROID and
+                if (string.$.name === 'app_name_android') {
 
-                if (string.$.name === 'app_name') {
+                    // Add a new line character for Android Launc name
 
-                    console.log('Setting App Name: ', name);
-                    string._ = name;
+                    console.log('Setting App Name: ', name.split(' ').join('\\n'));
+                    string._ = name.split(' ').join('\\n');
                 }
             });
+
+            console.log('setting data to' + data);
 
             fs.writeFile(stringsPath, builder.buildObject(data));
 
