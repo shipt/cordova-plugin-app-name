@@ -42,7 +42,7 @@ module.exports = function (context) {
                 }
             });
 
-            console.log('setting data to' + data);
+            console.log('setting data to' + JSON.stringify(data));
 
             fs.writeFile(stringsPath, builder.buildObject(data));
 
